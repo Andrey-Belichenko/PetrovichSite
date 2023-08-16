@@ -7,5 +7,5 @@ def index(request):
 
 
 def gallery(request):
-    return HttpResponse("Test gallery page")
+    return render(request, "gallery_page.html")
 
