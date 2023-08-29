@@ -7,7 +7,7 @@
   {% bootstrap_javascript %}
 </head>
 <body>
-
+{% block content %}
 <div class="container">
   <ul class="nav bg-info">
     <li class="nav-item">
@@ -18,12 +18,20 @@
     </li>
   </ul>
 
-  {% block content %}
-  {% endblock %}
-</div>
 
-<div class="container">
-  <h2>gallery page</h2>
 </div>
+  {% for x in data %}
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <a href="{{ x.photo.url }}">
+              <img src="{{ x.photo.url }}" alt="Lights" style="width:100%">
+              <div class="caption">
+                <p>{{ x.title }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}
 </body>
 </html>

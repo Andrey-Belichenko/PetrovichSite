@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Image
 
 
 def index(request):
@@ -7,5 +7,10 @@ def index(request):
 
 
 def gallery(request):
-    return render(request, "gallery_page.html")
+    photos = Image.objects.all()
+    context = {
+        'data': photos
+    }
+    print(context)
+    return render(request, 'gallery_page.html', context)
 
